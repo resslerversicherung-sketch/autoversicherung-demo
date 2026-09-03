@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autoversicherung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#17171a;
+    --paper:#ffffff;
+    --muted:#6b6b74;
+    --line:#e3e1de;
+    --accent:#8e0038;
+    --shell:#f6f5f3;
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{height:100%;}
+
+  body{
+    margin:0;
+    background:var(--shell);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .wrap{
+    width:min(1120px, 100% - 3rem);
+    margin-inline:auto;
+  }
+
+  /* ---------- Kopfbereich ---------- */
+
+  header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+
+  .bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1.5rem;
+    min-height:82px;
+  }
+
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+    text-decoration:none;
+    color:inherit;
+  }
+
+  /* Platzhalter-Logo: hier spaeter die eigene Bilddatei einsetzen */
+  .logo img{
+    height:34px;
+    width:auto;
+    display:block;
+  }
+
+  .logo-text{
+    font-weight:600;
+    font-size:1.15rem;
+    letter-spacing:.01em;
+  }
+
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:2rem;
+    margin:0;
+    padding:0;
+  }
+
+  nav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:.95rem;
+    font-weight:500;
+    padding:.4rem 0;
+    border-bottom:2px solid transparent;
+  }
+
+  nav a:hover,
+  nav a:focus-visible{
+    color:var(--ink);
+    border-bottom-color:var(--accent);
+  }
+
+  nav a:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:4px;
+  }
+
+  /* ---------- Inhalt ---------- */
+
+  main{
+    flex:1;
+    display:flex;
+    align-items:center;
+    padding:4.5rem 0;
+  }
+
+  .hero{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+    align-items:center;
+    gap:3.5rem;
+  }
+
+  h1{
+    font-size:clamp(1.75rem, 4.5vw, 2.9rem);
+    font-weight:600;
+    line-height:1.2;
+    letter-spacing:-.015em;
+    margin:0;
+    max-width:16ch;
+  }
+
+  h1::after{
+    content:"";
+    display:block;
+    width:64px;
+    height:3px;
+    background:var(--accent);
+    margin-top:1.75rem;
+  }
+
+  /* Auto-Abbildung. Zum Ersetzen durch ein Foto: das <svg> unten
+     loeschen und stattdessen <img src="auto.jpg" alt="Auto"> einsetzen. */
+  .auto{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  /* ---------- Fussbereich ---------- */
+
+  footer{
+    border-top:1px solid var(--line);
+    color:var(--muted);
+    font-size:.85rem;
+    padding:1.5rem 0;
+  }
+
+  @media (max-width:820px){
+    .hero{
+      grid-template-columns:1fr;
+      gap:2.5rem;
+    }
+    h1{max-width:22ch;}
+  }
+
+  @media (max-width:640px){
+    .bar{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:.75rem;
+      padding:1.25rem 0;
+    }
+    nav ul{
+      gap:1.25rem;
+      flex-wrap:wrap;
+    }
+    main{padding:3rem 0;}
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap bar">
+
+      <a class="logo" href="#">
+        <!-- Platzhalter-Logo. Ersetzen durch: <img src="logo.svg" alt="Logo"> -->
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'><rect width='34' height='34' rx='6' fill='%238e0038'/><path d='M8 22l5-11 4 8 3-4 6 7z' fill='white'/></svg>" alt="Logo">
+        <span class="logo-text">Autoversicherung</span>
+      </a>
+
+      <nav aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#">Start</a></li>
+          <li><a href="#">Leistungen</a></li>
+          <li><a href="#">Beitrag</a></li>
+          <li><a href="#">Schaden melden</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+
+      <h1>Hallo, das ist die Autoversicherung der ERGO.</h1>
+
+      <svg class="auto" viewBox="0 0 600 240" role="img" aria-label="Seitenansicht eines Autos" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Fahrbahn -->
+        <line x1="6" y1="211" x2="594" y2="211" stroke="#d8d5d1" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- Karosserie -->
+        <path d="M20 170 L100 170 A40 40 0 0 1 180 170 L410 170 A40 40 0 0 1 490 170
+                 L570 170 L570 152 C570 140 562 133 550 131 L478 118 L402 58
+                 C396 53 388 50 380 50 L262 50 C252 50 243 54 236 61 L172 120
+                 L52 138 C34 141 20 152 20 166 Z"
+              fill="#8e0038"/>
+
+        <!-- Scheiben -->
+        <path d="M248 64 L300 64 L300 110 L196 110 Z" fill="#f6f5f3"/>
+        <path d="M312 64 L378 64 L424 110 L312 110 Z" fill="#f6f5f3"/>
+
+        <!-- Tuerfuge und Griff -->
+        <line x1="306" y1="64" x2="306" y2="168" stroke="#6d0029" stroke-width="3"/>
+        <rect x="322" y="128" width="30" height="7" rx="3.5" fill="#6d0029"/>
+
+        <!-- Scheinwerfer -->
+        <path d="M22 148 L46 145 L46 157 L21 158 Z" fill="#ffe9c9"/>
+
+        <!-- Raeder -->
+        <circle cx="140" cy="170" r="40" fill="#17171a"/>
+        <circle cx="140" cy="170" r="17" fill="#c9c6c1"/>
+        <circle cx="450" cy="170" r="40" fill="#17171a"/>
+        <circle cx="450" cy="170" r="17" fill="#c9c6c1"/>
+
+      </svg>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">Beispielseite ohne Funktion.</div>
+  </footer>
+
+</body>
+</html>
